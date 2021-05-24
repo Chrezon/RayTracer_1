@@ -30,12 +30,19 @@ Vector3 Vector3::getUnitVector() {
     return retval;
 }
 
-Vector3 operator* (const float f, const Vector3 v) {
+Vector3 operator* (const float f, const Vector3& v) {
     return Vector3(f * v[0], f * v[1], f * v[2]);
 }
-Vector3 operator* (const Vector3 v, const float f) {
+Vector3 operator* (const Vector3& v, const float f) {
     return f * v;
 }
-Vector3 operator+ (const Vector3 a, const Vector3 b){
+Vector3 operator/ (const Vector3& v, const float f) {
+    return (1/f) * v;
+}
+Vector3 operator+ (const Vector3& a, const Vector3& b){
     return Vector3(a[0] + b[0], a[1] + b[1], a[2]+b[2]);
+}
+
+Vector3 operator- (const Vector3& a, const Vector3& b){
+    return Vector3(a[0] - b[0], a[1] - b[1], a[2]-b[2]);
 }

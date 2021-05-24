@@ -32,7 +32,7 @@ void renderImage(float aspectRatio, int width /*, Vector3& origin*/) {
     // also determine an arbitrary viewport
     float viewHeight = 2; // TODO: Make these editable properties sometime
     float viewWidth = aspectRatio * 2;
-    float focalLength = 1.0;
+    float focalLength = -1.0;
     // step 2: for each pixel, print a colour
         // boiler plate code
     std::cout << "P3" << std::endl;
