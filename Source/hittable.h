@@ -6,7 +6,7 @@
 
 class Ray;
 
-// parent class for all hittable objects
+// convenient class to pass all the information associated with a hit
 struct HitRecord {
     Vector3 point;
     Vector3 normal;
@@ -19,6 +19,7 @@ struct HitRecord {
     }
 };
 
+// parent class for all hittable objects
 class Hittable {
 public:
     virtual bool hit(const Ray& r, float tMin, float tMax, HitRecord& record) const = 0;

@@ -19,7 +19,7 @@ public:
         return origin + (t * direction);
     }
 
-    Color rayColor(const Hittable& item);
+    Color rayColor(const Hittable& item, int depth);
 };
 
 #endif

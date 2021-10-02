@@ -25,6 +25,15 @@ inline float randomFloat() {
 inline float randomFloat(double min, double max) {
     return min + (max - min) * randomFloat();
 }
+inline Vector3 randomUnitVector() {
+    Vector3 retval;
+    while(true) {
+        retval = Vector3(randomFloat(-1, 1), randomFloat(-1, 1), randomFloat(-1, 1));
+        if (retval.getSquaredSize() >= 1) continue;
+        break;
+    }
+    return retval.getUnitVector();
+}
 inline float clamp(float x, float min, float max) {
     if (x < min) return min;
     if (x > max) return max;

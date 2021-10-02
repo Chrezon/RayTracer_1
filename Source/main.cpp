@@ -6,6 +6,9 @@
 #include "sphere.h"
 #include "camera.h"
 
+const int numberBounces = 50;
+
+
 // This is just a little Hello World!
 void rendererTest(int width, int height) {
     // TODO: Add some sort of progress bar tool
@@ -47,7 +50,7 @@ void renderImage(float aspectRatio, int width, const Hittable& world /*, Vector3
             Vector3 pixelColor(0,0,0);
             for (int k = 0; k < samplesPerPixel; k++) {
                 Ray r = cam.getRay(i,j);
-                pixelColor += r.rayColor(world);
+                pixelColor += r.rayColor(world, numberBounces);
             }
             printColor(std::cout, pixelColor, 100);
         }
