@@ -1,16 +1,22 @@
 #include <cmath>
 #include "vector3.h"
+#include "constants.h"
 
 // Vector3 Utility
 Vector3::Vector3() : coord{0, 0, 0} {}
 Vector3::Vector3(float a, float b, float c) : coord{a, b, c} {}
 
 // Color specific utility
-std::ostream& printColor(std::ostream& s, const Color c) {
-    int r = static_cast<int>(255.999 * c[0]);
-    int g = static_cast<int>(255.999 * c[1]);
-    int b = static_cast<int>(255.999 * c[2]);
-    s << r << " " << g << " " << b << std::endl;
+std::ostream& printColor(std::ostream& s, const Color c, const int samplesPerPixel) {
+    float scale = 1.0/samplesPerPixel;
+    float r = c[0]*scale;
+    float g = c[1]*scale;
+    float b = c[2]*scale;
+
+    int ri = static_cast<int>(255.999 * clamp(r,0,0.999));
+    int gi = static_cast<int>(255.999 * clamp(g,0,0.999));
+    int bi = static_cast<int>(255.999 * clamp(b,0,0.999));
+    s << ri << " " << gi << " " << bi << std::endl;
     return s;
 }
 

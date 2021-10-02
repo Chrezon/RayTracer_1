@@ -15,5 +15,6 @@ bool Sphere::hit(const Ray& r, float tMin, float tMax, HitRecord& record) const 
     record.point = r.at(root);
     record.t = root;
     record.normal = (record.point - center) / radius; // since we want a unit vector
+    record.setFaceDirectionAndNormal(r);
     return true;
 }

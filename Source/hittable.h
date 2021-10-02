@@ -2,6 +2,7 @@
 #define HITTABLE
 
 #include "vector3.h"
+#include "ray.h"
 
 class Ray;
 
@@ -10,6 +11,12 @@ struct HitRecord {
     Vector3 point;
     Vector3 normal;
     float t;
+    bool outerFace;
+    // functions
+    inline void setFaceDirectionAndNormal(const Ray& r) {
+        outerFace = normal.dot(r.direction) < 0; // are they pointing in the same direction?
+        normal = outerFace ? normal : -normal; 
+    }
 };
 
 class Hittable {

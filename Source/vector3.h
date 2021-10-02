@@ -19,7 +19,11 @@ public:
     Vector3 operator- () const {
         return Vector3(-coord[0], -coord[1], -coord[2]);
     }
-    //Vector3& operator+= (const Vector3 other);
+    void operator+= (const Vector3 other) {
+        coord[0] += other[0];
+        coord[1] += other[1];
+        coord[2] += other[2];
+    }
     //Vector3& operator-= (const Vector3 other);
     //Vector3& operator*= (const float c);
     //Vector3& operator/= (const float c);
@@ -47,6 +51,6 @@ Vector3 operator- (const Vector3& a, const Vector3& b);
 using Color = Vector3;
 
 // Color utils
-std::ostream& printColor(std::ostream& s, const Color c);
+std::ostream& printColor(std::ostream& s, const Color c, const int samplesPerPixel);
 
 #endif
