@@ -6,6 +6,9 @@
 #include "sphere.h"
 #include "camera.h"
 
+// TODO: TEMP TESTING!!!
+#include "objLoader.h"
+
 const int numberBounces = 50;
 
 
@@ -65,8 +68,19 @@ int main() {
 
     // Define the world here:
     HittableList world;
-    world.add(std::make_shared<Sphere>(Vector3(0,0,-1), 0.5));
+    world.add(std::make_shared<Sphere>(Vector3(0,0,-2), 0.5));
     world.add(std::make_shared<Sphere>(Vector3(0,-100.5,-1), 100));
+    world.add(std::make_shared<Sphere>(Vector3(1, 0, -2), 0.5));
+    world.add(std::make_shared<Sphere>(Vector3(-1, 0, -2), 0.5));
+
+    // objl::Loader temp;
+    // if (temo.loadFile("cube.obj")) {
+    //     for (auto mesh : LoadedMeshes) {
+
+    //     }
+    // }
+
+
 
     renderImage(16.0/9.0, 400, world);
 }
